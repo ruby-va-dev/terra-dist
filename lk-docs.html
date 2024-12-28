@@ -43,7 +43,7 @@
                                 stroke-linecap="round" />
                         </svg>
                     </button>
-                    <div class="header__search r-search">
+                    <div class="header__search r-search js-r-search">
                         <input class="r-search__input" type="text"
                             placeholder="Поиск">
                         <button class="r-search__btn" type="submit">
@@ -55,6 +55,17 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M10.7465 10.7467C10.9418 10.5514 11.2584 10.5514 11.4537 10.7467L14.3537 13.6467C14.5489 13.8419 14.5489 14.1585 14.3537 14.3538C14.1584 14.549 13.8418 14.549 13.6465 14.3538L10.7465 11.4538C10.5513 11.2585 10.5513 10.9419 10.7465 10.7467Z"
                                     fill="inherit" />
+                            </svg>
+                        </button>
+                        <button class="r-search__clear" type="button">
+                            <svg width="24" height="25" viewBox="0 0 24 25"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.00635 7.25049L16.689 16.9332"
+                                    stroke="#B2B4C1" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <path d="M16.689 7.25049L7.0063 16.9332"
+                                    stroke="#B2B4C1" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </button>
                     </div>
@@ -115,63 +126,8 @@
                                     <li
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
-                                            <span class="dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="false">Контакты</span>
-                                            <div
-                                                class="r-popup dropdown-menu dropdown-menu-right">
-                                                <div class="r-popup__inner">
-                                                    <div
-                                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
-                                                        <ul
-                                                            class="sidebar-call__list list-reset">
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Менеджер
-                                                                </div>
-                                                                <a class="sidebar-call__content"
-                                                                    href="tel:+71111111111">
-                                                                    +7 (111)
-                                                                    111-11-11
-                                                                </a>
-                                                            </li>
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Рабочие часы
-                                                                </div>
-                                                                <div
-                                                                    class="sidebar-call__content">
-                                                                    8:00 - 18:00 МСК
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <button
-                                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
-                                                            <svg class="r-btn__icon"
-                                                                width="25"
-                                                                height="24"
-                                                                viewBox="0 0 25 24"
-                                                                fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
-                                                                    fill="white">
-                                                                </path>
-                                                                <path
-                                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
-                                                                    fill="white">
-                                                                </path>
-                                                            </svg>
-                                                            Связаться с менеджером
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="js-tooltip-activator"
+                                                r-tooltip-target="contact-popup-1">Контакты</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -195,6 +151,50 @@
                                             </a>
                                         </li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="r-popup" id="contact-popup-1">
+                                <div class="r-popup__inner">
+                                    <div
+                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
+                                        <ul class="sidebar-call__list list-reset">
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Менеджер
+                                                </div>
+                                                <a class="sidebar-call__content"
+                                                    href="tel:+71111111111">
+                                                    +7 (111)
+                                                    111-11-11
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Рабочие часы
+                                                </div>
+                                                <div class="sidebar-call__content">
+                                                    8:00 - 18:00 МСК
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <button
+                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
+                                            <svg class="r-btn__icon" width="25"
+                                                height="24" viewBox="0 0 25 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
+                                                    fill="white">
+                                                </path>
+                                                <path
+                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
+                                                    fill="white">
+                                                </path>
+                                            </svg>
+                                            Связаться с менеджером
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -252,63 +252,9 @@
                                     <li
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
-                                            <span class="dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="false">Контакты</span>
-                                            <div
-                                                class="r-popup dropdown-menu dropdown-menu-right">
-                                                <div class="r-popup__inner">
-                                                    <div
-                                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
-                                                        <ul
-                                                            class="sidebar-call__list list-reset">
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Менеджер
-                                                                </div>
-                                                                <a class="sidebar-call__content"
-                                                                    href="tel:+71111111111">
-                                                                    +7 (111)
-                                                                    111-11-11
-                                                                </a>
-                                                            </li>
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Рабочие часы
-                                                                </div>
-                                                                <div
-                                                                    class="sidebar-call__content">
-                                                                    8:00 - 18:00 МСК
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <button
-                                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
-                                                            <svg class="r-btn__icon"
-                                                                width="25"
-                                                                height="24"
-                                                                viewBox="0 0 25 24"
-                                                                fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
-                                                                    fill="white">
-                                                                </path>
-                                                                <path
-                                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
-                                                                    fill="white">
-                                                                </path>
-                                                            </svg>
-                                                            Связаться с менеджером
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="js-tooltip-activator"
+                                                r-tooltip-target="contact-popup-2">Контакты</span>
+    
                                         </div>
                                     </li>
                                 </ul>
@@ -334,10 +280,52 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="r-popup" id="contact-popup-2">
+                                <div class="r-popup__inner">
+                                    <div
+                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
+                                        <ul class="sidebar-call__list list-reset">
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Менеджер
+                                                </div>
+                                                <a class="sidebar-call__content"
+                                                    href="tel:+71111111111">
+                                                    +7 (111)
+                                                    111-11-11
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Рабочие часы
+                                                </div>
+                                                <div class="sidebar-call__content">
+                                                    8:00 - 18:00 МСК
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <button
+                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
+                                            <svg class="r-btn__icon" width="25"
+                                                height="24" viewBox="0 0 25 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
+                                                    fill="white">
+                                                </path>
+                                                <path
+                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
+                                                    fill="white">
+                                                </path>
+                                            </svg>
+                                            Связаться с менеджером
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-    
-    
     
                     <div class="header__right">
                         <a class="header__profile rc-profile" href="#">
@@ -349,15 +337,82 @@
                         </a>
                     </div>
                 </div>
+    
                 <button class="header__burger-btn r-burger" type="button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <div class="r-burger__icon">
+                        <span class="r-burger__line"></span>
+                        <span class="r-burger__line"></span>
+                        <span class="r-burger__line"></span>
+                    </div>
+    
+                    <span class="r-burger__text">Меню</span>
                 </button>
+    
+                <div
+                    class="header__mobile-search r-search js-r-search js-header-search-input">
+                    <input class="r-search__input" type="text" placeholder="Поиск">
+                    <button class="r-search__btn" type="submit">
+                        <svg width="16" height="16" viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7.33333 2.5C4.66396 2.5 2.5 4.66396 2.5 7.33333C2.5 10.0027 4.66396 12.1667 7.33333 12.1667C10.0027 12.1667 12.1667 10.0027 12.1667 7.33333C12.1667 4.66396 10.0027 2.5 7.33333 2.5ZM1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333Z"
+                                fill="inherit" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.7465 10.7467C10.9418 10.5514 11.2584 10.5514 11.4537 10.7467L14.3537 13.6467C14.5489 13.8419 14.5489 14.1585 14.3537 14.3538C14.1584 14.549 13.8418 14.549 13.6465 14.3538L10.7465 11.4538C10.5513 11.2585 10.5513 10.9419 10.7465 10.7467Z"
+                                fill="inherit" />
+                        </svg>
+                    </button>
+                    <button class="r-search__clear" type="button">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.00635 7.25049L16.689 16.9332"
+                                stroke="#B2B4C1" stroke-width="2"
+                                stroke-linecap="round" />
+                            <path d="M16.689 7.25049L7.0063 16.9332"
+                                stroke="#B2B4C1" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <div class="header__mobile-icons">
+                    <button class="header__mobile-icon js-header-search-mobile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.875 18.875L15.4388 15.4388M15.4388 15.4388C16.5321 14.3454 17.2083 12.835 17.2083 11.1667C17.2083 7.82995 14.5034 5.125 11.1667 5.125C7.82995 5.125 5.125 7.82995 5.125 11.1667C5.125 14.5034 7.82995 17.2083 11.1667 17.2083C12.835 17.2083 14.3454 16.5321 15.4388 15.4388Z"
+                                stroke="inherit" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="header__mobile-icon" href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.75471 9.21788C8.49687 10.6868 9.48151 12.0645 10.7086 13.2917C11.9357 14.5188 13.3135 15.5034 14.7824 16.2456L16.5731 14.4549C16.735 14.293 16.9862 14.2618 17.1828 14.3791L20.6988 16.4766C20.9786 16.6435 21.0266 17.0292 20.7962 17.2595L17.2135 20.8422C16.9611 21.0947 16.5927 21.1953 16.2506 21.0932C14.7296 20.6393 13.2522 19.9995 11.8542 19.1738C10.442 18.3398 9.11087 17.3161 7.89754 16.1028C6.68421 14.8894 5.66053 13.5583 4.82649 12.1461C4.00083 10.7481 3.36102 9.27071 2.90709 7.74969C2.805 7.40763 2.90564 7.03924 3.15805 6.78682L6.74076 3.20411C6.97115 2.97372 7.35679 3.0217 7.52371 3.3015L9.62122 6.81749C9.73853 7.01412 9.70728 7.2653 9.54538 7.4272L7.75471 9.21788Z"
+                                stroke="inherit" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
     
             </nav>
         </div>
-    </header>    
+    </header>
+    
+    <div class="r-search-dropdown">
+        <ul class="r-search-dropdown__list list-reset">
+            <li class="r-search-dropdown__item">
+                <a href="#">Печатное оборудование</a>
+            </li>
+            <li class="r-search-dropdown__item">
+                <a href="#">
+                    Машина для печати
+                    <span>AccurioPress C3080</span>
+                </a>
+            </li>
+        </ul>
+    </div>    
     <div class="r-breadcrumbs">
         <div class="container">
             <div class="row">
@@ -653,7 +708,9 @@
                             </ul>
                         </div>
                         <div class="footer__third-col">
-                            <button class="footer__btn r-btn r-btn--text-orange">
+                            <button
+                                class="footer__btn r-btn r-btn--text-orange js-modal-activator"
+                                data-r-modal="#callPopup">
                                 Заказать звонок
                             </button>
                         </div>
@@ -662,6 +719,86 @@
             </div>
         </div>
     </footer>
+    
+    <div class="r-modal" id="callPopup">
+        <div class="r-modal__box">
+            <div class="r-modal__inner">
+                <div class="r-modal__title">Оставьте заявку в этой форме и наш
+                    звонок не заставит долго ждать!</div>
+                <button class="r-modal__close js-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.00635 7.25049L16.689 16.9332" stroke="inherit"
+                            stroke-width="2" stroke-linecap="round" />
+                        <path d="M16.689 7.25049L7.0063 16.9332" stroke="inherit"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+    
+                <form class="r-modal__form r-form">
+                    <div class="r-form__group">
+                        <label class="r-form__field r-field">
+                            <input class="r-field__input" type="text"
+                                placeholder="Имя*">
+                        </label>
+                        <label class="r-form__field r-field">
+                            <input class="r-field__input" type="email"
+                                placeholder="Почта*">
+                        </label>
+                        <label class="r-form__field r-field">
+                            <input class="r-field__input" type="tel"
+                                placeholder="Телефон*">
+                        </label>
+                        <div class="r-form__field r-select">
+                            <select class="js-choice" name="test-select"
+                                id="test-select">
+                                <option value="" disabled selected>
+                                    Выберите услугу
+                                </option>
+                                <option value="1">услуга 1</option>
+                                <option value="2">услуга 2</option>
+                            </select>
+                            <div class="r-select__icon">
+                                <svg width="25" height="24" viewBox="0 0 25 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.79289 8.29289C6.18342 7.90237 6.81658 7.90237 7.20711 8.29289L12.5 13.5858L17.7929 8.29289C18.1834 7.90237 18.8166 7.90237 19.2071 8.29289C19.5976 8.68342 19.5976 9.31658 19.2071 9.70711L13.2071 15.7071C12.8166 16.0976 12.1834 16.0976 11.7929 15.7071L5.79289 9.70711C5.40237 9.31658 5.40237 8.68342 5.79289 8.29289Z"
+                                        fill="inherit" />
+                                </svg>
+                            </div>
+                        </div>
+                        <label class="r-form__field r-field">
+                            <textarea class="r-field__input" rows="2"
+                                placeholder="Комментарий"></textarea>
+                        </label>
+                    </div>
+    
+                    <div class="r-form__group">
+                        <label class="r-form__field r-checkbox r-checkbox--md">
+                            <input class="r-checkbox__input" type="checkbox"
+                                id="personaldata">
+                            <span class="r-checkbox__box"></span>
+                            <span class="r-checkbox__text">Я согласен на
+                                обработку персональных данных</span>
+                        </label>
+    
+                        <label class="r-form__field r-checkbox r-checkbox--md">
+                            <input class="r-checkbox__input" type="checkbox"
+                                id="newsletter">
+                            <span class="r-checkbox__box"></span>
+                            <span class="r-checkbox__text">Получать рассылку
+                                со спец предложениями и акциями</span>
+                        </label>
+                    </div>
+    
+                    <div class="r-form__group">
+                        <button class="r-form__btn-full r-btn r-btn--orange-rounded"
+                            type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script
         src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

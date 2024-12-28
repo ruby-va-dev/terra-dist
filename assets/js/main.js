@@ -4,7 +4,12 @@ console.log(1)
 console.log(1)
 console.log(1)
 console.log(2)
-const addClassByHover = (mainClass, innerWrapperClass, delay = 300) => {
+const addClassByHover = (
+  mainClass,
+  innerWrapperClass,
+  delay = 300,
+  callbackOnClose
+) => {
   const elements = document.querySelectorAll(mainClass);
   let activeTimeoutId = null; // Глобальный таймер
   let lastHoveredElement = null; // Последний элемент, на который был наведен курсор
@@ -26,7 +31,7 @@ const addClassByHover = (mainClass, innerWrapperClass, delay = 300) => {
         if (previousDetails) {
           previousDetails.classList.remove("active");
         }
-        $(".dropdown-toggle").dropdown("hide");
+        callbackOnClose();
         lastHoveredElement.classList.remove("active");
       }
 
@@ -46,7 +51,7 @@ const addClassByHover = (mainClass, innerWrapperClass, delay = 300) => {
         if (containerDetails) {
           containerDetails.classList.remove("active");
         }
-        $(".dropdown-toggle").dropdown("hide");
+        callbackOnClose();
         element.classList.remove("active");
 
         // Сбрасываем только если таймер завершился
@@ -60,6 +65,53 @@ const addClassByHover = (mainClass, innerWrapperClass, delay = 300) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM ready");
+  let activeTooltip = null; // Variable for storing the current active tooltip
+
+  function toggleTooltip(element) {
+    const targetId = element.getAttribute("r-tooltip-target"); // Get target ID
+    const tooltip = document.getElementById(targetId); // Find the corresponding tooltip
+
+    if (!tooltip) return; // Do nothing if no tooltip is found
+
+    const rect = element.getBoundingClientRect();
+
+    console.log(rect);
+
+    // If the tooltip is already active, hide it
+    if (tooltip === activeTooltip) {
+      hideTooltip();
+      return;
+    }
+
+    // Hide the current active tooltip if it exists
+    if (activeTooltip) {
+      hideTooltip();
+    }
+
+    // Position and display the new tooltip
+    positionTooltip(tooltip, rect);
+
+    tooltip.classList.add("active");
+    activeTooltip = tooltip; // Update the reference to the current active tooltip
+
+    // Use the onClickOutside helper to handle clicks outside the tooltip
+    onClickOutside2([tooltip, element], () => {
+      hideTooltip();
+    });
+  }
+
+  function hideTooltip() {
+    if (activeTooltip) {
+      activeTooltip.classList.remove("active");
+      activeTooltip = null; // Reset the reference to the active tooltip
+    }
+  }
+
+  // Helper function to position the tooltip
+  function positionTooltip(tooltip, rect) {
+    tooltip.style.right = `${document.body.clientWidth - rect.right}px`;
+    tooltip.style.top = `${rect.bottom}px`;
+  }
 
   const onClickOutside = (elements, callback) => {
     document.addEventListener("click", (e) => {
@@ -69,20 +121,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  addClassByHover(".header__menu-item", ".header__submenu", 150);
+  const onClickOutside2 = (elements, callback) => {
+    const handler = (e) => {
+      if (![...elements].some((element) => element.contains(e.target))) {
+        callback();
+        document.removeEventListener("mousedown", handler); // Убираем обработчик после срабатывания
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+  };
+
+  // Add click event handlers to tooltip activators
+  document.querySelectorAll(".js-tooltip-activator").forEach((activator) => {
+    activator.addEventListener("click", (e) => {
+      e.stopPropagation(); // Stop event bubbling
+      toggleTooltip(e.target);
+    });
+  });
+
+  // Debounce function
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
+
+  // Add resize event listener to reposition the active tooltip
+  window.addEventListener(
+    "resize",
+    debounce(() => {
+      if (activeTooltip) {
+        const activator = document.querySelector(
+          `[r-tooltip-target="${activeTooltip.id}"]`
+        );
+        if (activator) {
+          const rect = activator.getBoundingClientRect();
+          positionTooltip(activeTooltip, rect);
+        }
+      }
+    }, 200)
+  );
+
+  addClassByHover(".header__menu-item", ".header__submenu", 200, () => {
+    hideTooltip();
+  });
 
   const swiper = new Swiper(".js-swiper", {
     slidesPerView: "auto",
-    spaceBetween: 19,
+    spaceBetween: 6,
     navigation: {
       nextEl: ".common-slider__btn--next",
       prevEl: ".common-slider__btn--prev",
     },
   });
 
+  const swiperHero = new Swiper(".js-hero-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    breakpoints: {
+      200: {
+        spaceBetween: 0,
+      },
+      // when window width is >= 993
+      992: {
+        spaceBetween: 10,
+      },
+    },
+  });
+
   const swiperProjects = new Swiper(".js-projects-swiper", {
     slidesPerView: 3,
     spaceBetween: 12,
+    autoHeight: true,
     navigation: {
       nextEl: ".projects-block__btn--next",
       prevEl: ".projects-block__btn--prev",
@@ -178,14 +292,14 @@ document.addEventListener("DOMContentLoaded", () => {
     freeMode: true,
   });
 
-  const choicesSelect = document.querySelector(".js-choice");
+  const choicesSelects = document.querySelectorAll(".js-choice");
 
-  if (choicesSelect) {
-    const choices = new Choices(".js-choice", {
+  choicesSelects.forEach((select) => {
+    const choices = new Choices(select, {
       searchEnabled: false,
       itemSelectText: false,
     });
-  }
+  });
 
   function initHeaderToggle() {
     const burgerBtn = document.querySelector(".header__burger-btn");
@@ -280,4 +394,157 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   mobileMenu();
+
+  const showModal = (selector) => {
+    const btns = document.querySelectorAll(selector);
+
+    btns.forEach((btn) => {
+      console.log(btn.dataset.rModal);
+      const modal = document.querySelector(btn.dataset.rModal);
+
+      const closeBtn = modal.querySelector(".js-close");
+
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+
+      btn.addEventListener("click", () => {
+        modal.classList.add("active");
+      });
+    });
+  };
+
+  showModal(".js-modal-activator");
+
+  function enableSwipe(
+    elementSelector,
+    { direction = "up", threshold = 50, onSwipe } = {}
+  ) {
+    const element = document.querySelector(elementSelector);
+    if (!element) {
+      return;
+    }
+
+    let startY = 0;
+    let endY = 0;
+
+    element.addEventListener("touchstart", (event) => {
+      startY = event.touches[0].clientY;
+    });
+
+    element.addEventListener("touchmove", (event) => {
+      endY = event.touches[0].clientY;
+    });
+
+    element.addEventListener("touchend", () => {
+      const swipeDistance = startY - endY;
+
+      if (direction === "up" && swipeDistance > threshold) {
+        onSwipe?.(element); // Вызываем callback при свайпе вверх
+      } else if (direction === "down" && swipeDistance < -threshold) {
+        onSwipe?.(element); // Вызываем callback при свайпе вниз
+      }
+    });
+  }
+
+  enableSwipe(".js-swipe-block", {
+    direction: "up",
+    threshold: 50,
+    onSwipe: (element) => {
+      element.classList.add("swiped-up");
+      console.log(`Swiped up on`, element);
+    },
+  });
+
+  enableSwipe(".js-swipe-block", {
+    direction: "down",
+    threshold: 50,
+    onSwipe: (element) => {
+      element.classList.remove("swiped-up");
+      console.log(`Swiped up on`, element);
+    },
+  });
+
+  const searchingClearEnable = () => {
+    const searchInputs = document.querySelectorAll(".js-r-search");
+
+    searchInputs.forEach((search) => {
+      const input = search.querySelector("input");
+      const clearBtn = search.querySelector(".r-search__clear");
+
+      const checkInput = () => {
+        if (input.value.length > 2) {
+          clearBtn.classList.add("active");
+        } else {
+          clearBtn.classList.remove("active");
+        }
+      };
+
+      checkInput();
+
+      input.addEventListener("input", () => {
+        checkInput();
+      });
+
+      clearBtn.addEventListener("click", () => {
+        input.value = "";
+        checkInput();
+      });
+    });
+  };
+
+  searchingClearEnable();
+
+  const mobileMenuOpenSearch = () => {
+    const searchBtn = document.querySelector(".js-header-search-mobile");
+    const searchInput = document.querySelector(".js-header-search-input");
+    const searchInputField = searchInput.querySelector("input");
+    const closeBtn = searchInput.querySelector(".r-search__clear");
+    const dropdownSearch = document.querySelector(".r-search-dropdown");
+
+    searchBtn.addEventListener("click", () => {
+      searchInput.classList.add("active");
+      searchInputField.focus();
+    });
+
+    closeBtn.addEventListener("click", () => {
+      searchInput.classList.remove("active");
+      closeBtn.classList.remove("active");
+      dropdownSearch.classList.remove("active");
+    });
+
+    onClickOutside([searchInput, searchBtn, dropdownSearch], () => {
+      searchInput.classList.remove("active");
+      dropdownSearch.classList.remove("active");
+    });
+  };
+
+  mobileMenuOpenSearch();
+
+  function toggleElementOnScroll(tracked, target, offset = 0) {
+    const targetElement = document.getElementById(target);
+    const trackedElement = document.getElementById(tracked);
+
+    if (!targetElement || !trackedElement) return;
+
+    const checkView = () => {
+      const rect = trackedElement.getBoundingClientRect();
+      const isOutOfView = rect.bottom + offset <= 0;
+
+      if (isOutOfView) {
+        targetElement.classList.add("active");
+      } else {
+        targetElement.classList.remove("active");
+      }
+    };
+
+    checkView();
+    const onScroll = () => {
+      checkView();
+    };
+
+    window.addEventListener("scroll", debounce(onScroll, 100));
+  }
+
+  toggleElementOnScroll("trackedElement", "targetElement", 0);
 });

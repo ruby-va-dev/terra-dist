@@ -22,7 +22,7 @@
     
     <title>Страница Терра Принт</title></head>
 
-<body class="body-wrapper">
+<body class="body-wrapper body-wrapper--bottom-menu">
     <header class="header">
         <div class="r-container-wide">
             <nav class="header__inner">
@@ -43,7 +43,7 @@
                                 stroke-linecap="round" />
                         </svg>
                     </button>
-                    <div class="header__search r-search">
+                    <div class="header__search r-search js-r-search">
                         <input class="r-search__input" type="text"
                             placeholder="Поиск">
                         <button class="r-search__btn" type="submit">
@@ -55,6 +55,17 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M10.7465 10.7467C10.9418 10.5514 11.2584 10.5514 11.4537 10.7467L14.3537 13.6467C14.5489 13.8419 14.5489 14.1585 14.3537 14.3538C14.1584 14.549 13.8418 14.549 13.6465 14.3538L10.7465 11.4538C10.5513 11.2585 10.5513 10.9419 10.7465 10.7467Z"
                                     fill="inherit" />
+                            </svg>
+                        </button>
+                        <button class="r-search__clear" type="button">
+                            <svg width="24" height="25" viewBox="0 0 24 25"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.00635 7.25049L16.689 16.9332"
+                                    stroke="#B2B4C1" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <path d="M16.689 7.25049L7.0063 16.9332"
+                                    stroke="#B2B4C1" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </button>
                     </div>
@@ -115,63 +126,8 @@
                                     <li
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
-                                            <span class="dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="false">Контакты</span>
-                                            <div
-                                                class="r-popup dropdown-menu dropdown-menu-right">
-                                                <div class="r-popup__inner">
-                                                    <div
-                                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
-                                                        <ul
-                                                            class="sidebar-call__list list-reset">
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Менеджер
-                                                                </div>
-                                                                <a class="sidebar-call__content"
-                                                                    href="tel:+71111111111">
-                                                                    +7 (111)
-                                                                    111-11-11
-                                                                </a>
-                                                            </li>
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Рабочие часы
-                                                                </div>
-                                                                <div
-                                                                    class="sidebar-call__content">
-                                                                    8:00 - 18:00 МСК
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <button
-                                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
-                                                            <svg class="r-btn__icon"
-                                                                width="25"
-                                                                height="24"
-                                                                viewBox="0 0 25 24"
-                                                                fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
-                                                                    fill="white">
-                                                                </path>
-                                                                <path
-                                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
-                                                                    fill="white">
-                                                                </path>
-                                                            </svg>
-                                                            Связаться с менеджером
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="js-tooltip-activator"
+                                                r-tooltip-target="contact-popup-1">Контакты</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -195,6 +151,50 @@
                                             </a>
                                         </li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="r-popup" id="contact-popup-1">
+                                <div class="r-popup__inner">
+                                    <div
+                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
+                                        <ul class="sidebar-call__list list-reset">
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Менеджер
+                                                </div>
+                                                <a class="sidebar-call__content"
+                                                    href="tel:+71111111111">
+                                                    +7 (111)
+                                                    111-11-11
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Рабочие часы
+                                                </div>
+                                                <div class="sidebar-call__content">
+                                                    8:00 - 18:00 МСК
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <button
+                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
+                                            <svg class="r-btn__icon" width="25"
+                                                height="24" viewBox="0 0 25 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
+                                                    fill="white">
+                                                </path>
+                                                <path
+                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
+                                                    fill="white">
+                                                </path>
+                                            </svg>
+                                            Связаться с менеджером
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -252,63 +252,9 @@
                                     <li
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
-                                            <span class="dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="false">Контакты</span>
-                                            <div
-                                                class="r-popup dropdown-menu dropdown-menu-right">
-                                                <div class="r-popup__inner">
-                                                    <div
-                                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
-                                                        <ul
-                                                            class="sidebar-call__list list-reset">
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Менеджер
-                                                                </div>
-                                                                <a class="sidebar-call__content"
-                                                                    href="tel:+71111111111">
-                                                                    +7 (111)
-                                                                    111-11-11
-                                                                </a>
-                                                            </li>
-                                                            <li
-                                                                class="sidebar-call__item">
-                                                                <div
-                                                                    class="sidebar-call__suptitle">
-                                                                    Рабочие часы
-                                                                </div>
-                                                                <div
-                                                                    class="sidebar-call__content">
-                                                                    8:00 - 18:00 МСК
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <button
-                                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
-                                                            <svg class="r-btn__icon"
-                                                                width="25"
-                                                                height="24"
-                                                                viewBox="0 0 25 24"
-                                                                fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
-                                                                    fill="white">
-                                                                </path>
-                                                                <path
-                                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
-                                                                    fill="white">
-                                                                </path>
-                                                            </svg>
-                                                            Связаться с менеджером
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="js-tooltip-activator"
+                                                r-tooltip-target="contact-popup-2">Контакты</span>
+    
                                         </div>
                                     </li>
                                 </ul>
@@ -334,10 +280,52 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="r-popup" id="contact-popup-2">
+                                <div class="r-popup__inner">
+                                    <div
+                                        class="news-page__sidebar-card news-page__sidebar-card--sm sidebar-call r-white-panel">
+                                        <ul class="sidebar-call__list list-reset">
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Менеджер
+                                                </div>
+                                                <a class="sidebar-call__content"
+                                                    href="tel:+71111111111">
+                                                    +7 (111)
+                                                    111-11-11
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-call__item">
+                                                <div class="sidebar-call__suptitle">
+                                                    Рабочие часы
+                                                </div>
+                                                <div class="sidebar-call__content">
+                                                    8:00 - 18:00 МСК
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <button
+                                            class="sidebar-call__btn r-btn r-btn--orange-rounded">
+                                            <svg class="r-btn__icon" width="25"
+                                                height="24" viewBox="0 0 25 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.823 6.72329L9.6714 7.57169C11.234 6.00929 13.7663 6.00929 15.3282 7.57169L16.1773 6.72329C14.146 4.69217 10.8544 4.69217 8.823 6.72329Z"
+                                                    fill="white">
+                                                </path>
+                                                <path
+                                                    d="M20.4998 10.3998C20.4998 5.98118 16.9195 2.3999 12.4999 2.3999C8.0815 2.3999 4.49998 5.98118 4.49998 10.3998C3.6163 10.3998 2.8999 11.1162 2.8999 11.9999V16.7999C2.8999 17.6836 3.6163 18.4 4.49998 18.4H6.89998C7.34182 18.4 7.6999 18.0421 7.6999 17.5998V13.6C7.6999 13.1601 7.50022 12.4998 7.25614 12.1343L6.10006 10.4001C6.10006 6.86486 8.96518 3.99998 12.5001 3.99998C16.0361 3.99998 18.9002 6.86486 18.9002 10.4001L17.7439 12.1343C17.4998 12.4998 17.2999 13.1601 17.2999 13.6V17.8235C16.1273 19.1555 14.4141 19.9998 12.4999 19.9998H10.8998V21.5999H12.4999C15.1154 21.5999 17.4295 20.3397 18.8889 18.4H20.4998C21.3835 18.4 22.0999 17.6836 22.0999 16.7999V11.9999C22.0999 11.1162 21.3835 10.3998 20.4998 10.3998Z"
+                                                    fill="white">
+                                                </path>
+                                            </svg>
+                                            Связаться с менеджером
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-    
-    
     
                     <div class="header__right">
                         <a class="header__profile rc-profile" href="#">
@@ -349,47 +337,153 @@
                         </a>
                     </div>
                 </div>
+    
                 <button class="header__burger-btn r-burger" type="button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <div class="r-burger__icon">
+                        <span class="r-burger__line"></span>
+                        <span class="r-burger__line"></span>
+                        <span class="r-burger__line"></span>
+                    </div>
+    
+                    <span class="r-burger__text">Меню</span>
                 </button>
+    
+                <div
+                    class="header__mobile-search r-search js-r-search js-header-search-input">
+                    <input class="r-search__input" type="text" placeholder="Поиск">
+                    <button class="r-search__btn" type="submit">
+                        <svg width="16" height="16" viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7.33333 2.5C4.66396 2.5 2.5 4.66396 2.5 7.33333C2.5 10.0027 4.66396 12.1667 7.33333 12.1667C10.0027 12.1667 12.1667 10.0027 12.1667 7.33333C12.1667 4.66396 10.0027 2.5 7.33333 2.5ZM1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333Z"
+                                fill="inherit" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.7465 10.7467C10.9418 10.5514 11.2584 10.5514 11.4537 10.7467L14.3537 13.6467C14.5489 13.8419 14.5489 14.1585 14.3537 14.3538C14.1584 14.549 13.8418 14.549 13.6465 14.3538L10.7465 11.4538C10.5513 11.2585 10.5513 10.9419 10.7465 10.7467Z"
+                                fill="inherit" />
+                        </svg>
+                    </button>
+                    <button class="r-search__clear" type="button">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.00635 7.25049L16.689 16.9332"
+                                stroke="#B2B4C1" stroke-width="2"
+                                stroke-linecap="round" />
+                            <path d="M16.689 7.25049L7.0063 16.9332"
+                                stroke="#B2B4C1" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <div class="header__mobile-icons">
+                    <button class="header__mobile-icon js-header-search-mobile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.875 18.875L15.4388 15.4388M15.4388 15.4388C16.5321 14.3454 17.2083 12.835 17.2083 11.1667C17.2083 7.82995 14.5034 5.125 11.1667 5.125C7.82995 5.125 5.125 7.82995 5.125 11.1667C5.125 14.5034 7.82995 17.2083 11.1667 17.2083C12.835 17.2083 14.3454 16.5321 15.4388 15.4388Z"
+                                stroke="inherit" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="header__mobile-icon" href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.75471 9.21788C8.49687 10.6868 9.48151 12.0645 10.7086 13.2917C11.9357 14.5188 13.3135 15.5034 14.7824 16.2456L16.5731 14.4549C16.735 14.293 16.9862 14.2618 17.1828 14.3791L20.6988 16.4766C20.9786 16.6435 21.0266 17.0292 20.7962 17.2595L17.2135 20.8422C16.9611 21.0947 16.5927 21.1953 16.2506 21.0932C14.7296 20.6393 13.2522 19.9995 11.8542 19.1738C10.442 18.3398 9.11087 17.3161 7.89754 16.1028C6.68421 14.8894 5.66053 13.5583 4.82649 12.1461C4.00083 10.7481 3.36102 9.27071 2.90709 7.74969C2.805 7.40763 2.90564 7.03924 3.15805 6.78682L6.74076 3.20411C6.97115 2.97372 7.35679 3.0217 7.52371 3.3015L9.62122 6.81749C9.73853 7.01412 9.70728 7.2653 9.54538 7.4272L7.75471 9.21788Z"
+                                stroke="inherit" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
     
             </nav>
         </div>
-    </header>    
+    </header>
+    
+    <div class="r-search-dropdown">
+        <ul class="r-search-dropdown__list list-reset">
+            <li class="r-search-dropdown__item">
+                <a href="#">Печатное оборудование</a>
+            </li>
+            <li class="r-search-dropdown__item">
+                <a href="#">
+                    Машина для печати
+                    <span>AccurioPress C3080</span>
+                </a>
+            </li>
+        </ul>
+    </div>    
     <section class="hero-banner">
         <div class="r-container">
-            <div class="hero-banner__inner hero-banner__inner--light">
-                <div class="hero-banner__content">
-                    <div class="hero-banner__suptitle">
-                        Выше качество, больше прибыли при разумных инвестициях!
-                    </div>
-                    <div class="hero-banner__title">AccurioPress C3080</div>
-                    <ul class="hero-banner__list list-reset">
-                        <li class="hero-banner__item">
-                            - Выдает 71 полноцветную страницу в минуту
-                        </li>
-                        <li class="hero-banner__item">
-                            - Официальный дилер
-                        </li>
-                        <li class="hero-banner__item">
-                            - Оптимизирована работа с&nbsp;носителями различных
-                            типов
-                        </li>
-                    </ul>
-                </div>
+            <div class="swiper js-hero-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hero-banner__inner hero-banner__inner--light">
+                            <div class="hero-banner__content">
+                                <div class="hero-banner__suptitle">
+                                    Выше качество, больше прибыли при разумных
+                                    инвестициях!
+                                </div>
+                                <div class="hero-banner__title">AccurioPress C3080
+                                </div>
+                                <ul class="hero-banner__list list-reset">
+                                    <li class="hero-banner__item">
+                                        - Выдает 71 полноцветную страницу в минуту
+                                    </li>
+                                    <li class="hero-banner__item">
+                                        - Официальный дилер
+                                    </li>
+                                    <li class="hero-banner__item">
+                                        - Оптимизирована работа с&nbsp;носителями
+                                        различных
+                                        типов
+                                    </li>
+                                </ul>
+                            </div>
     
-                <div class="hero-banner__image">
-                    <img src="./assets/img/hero-banner/partner.png"
-                        alt="Terminator3000XXXUltraSSS">
+                            <div class="hero-banner__image">
+                                <img src="./assets/img/hero-banner/partner.png"
+                                    alt="Terminator3000XXXUltraSSS">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-banner__inner hero-banner__inner--light">
+                            <div class="hero-banner__content">
+                                <div class="hero-banner__suptitle">
+                                    Выше качество, больше прибыли при разумных
+                                    инвестициях!
+                                </div>
+                                <div class="hero-banner__title">AccurioPress C3080
+                                </div>
+                                <ul class="hero-banner__list list-reset">
+                                    <li class="hero-banner__item">
+                                        - Выдает 71 полноцветную страницу в минуту
+                                    </li>
+                                    <li class="hero-banner__item">
+                                        - Официальный дилер
+                                    </li>
+                                    <li class="hero-banner__item">
+                                        - Оптимизирована работа с&nbsp;носителями
+                                        различных
+                                        типов
+                                    </li>
+                                </ul>
+                            </div>
+    
+                            <div class="hero-banner__image">
+                                <img src="./assets/img/hero-banner/partner.png"
+                                    alt="Terminator3000XXXUltraSSS">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="common-slider r-section">
     
+    <section class="common-slider r-section" id="trackedElement">
         <div class="r-container">
             <div class="common-slider__inner">
                 <div class="common-slider__row section-row">
@@ -407,6 +501,10 @@
                         <div class="common-slider__slide swiper-slide">
                             <div class="product-card">
                                 <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
                                     <div class="product-card__image">
                                         <img src="./assets/img/products/example.png"
                                             alt="AccurioPress C3080">
@@ -414,10 +512,10 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <button
-                                        class="product-card__button r-btn r-btn--text-orange">
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
                                         Подробнее
-                                    </button>
+                                    </a>
                                 </div>
     
                             </div>
@@ -425,6 +523,10 @@
                         <div class="common-slider__slide swiper-slide">
                             <div class="product-card">
                                 <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
                                     <div class="product-card__image">
                                         <img src="./assets/img/products/example.png"
                                             alt="AccurioPress C3080">
@@ -432,10 +534,10 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <button
-                                        class="product-card__button r-btn r-btn--text-orange">
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
                                         Подробнее
-                                    </button>
+                                    </a>
                                 </div>
     
                             </div>
@@ -443,6 +545,10 @@
                         <div class="common-slider__slide swiper-slide">
                             <div class="product-card">
                                 <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
                                     <div class="product-card__image">
                                         <img src="./assets/img/products/example.png"
                                             alt="AccurioPress C3080">
@@ -450,10 +556,10 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <button
-                                        class="product-card__button r-btn r-btn--text-orange">
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
                                         Подробнее
-                                    </button>
+                                    </a>
                                 </div>
     
                             </div>
@@ -461,6 +567,10 @@
                         <div class="common-slider__slide swiper-slide">
                             <div class="product-card">
                                 <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
                                     <div class="product-card__image">
                                         <img src="./assets/img/products/example.png"
                                             alt="AccurioPress C3080">
@@ -468,10 +578,76 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <button
-                                        class="product-card__button r-btn r-btn--text-orange">
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
                                         Подробнее
-                                    </button>
+                                    </a>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="common-slider__slide swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
+                                    <div class="product-card__image">
+                                        <img src="./assets/img/products/example.png"
+                                            alt="AccurioPress C3080">
+                                    </div>
+                                    <h3 class="product-card__title">AccurioPress
+                                        C3080</h3>
+    
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
+                                        Подробнее
+                                    </a>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="common-slider__slide swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
+                                    <div class="product-card__image">
+                                        <img src="./assets/img/products/example.png"
+                                            alt="AccurioPress C3080">
+                                    </div>
+                                    <h3 class="product-card__title">AccurioPress
+                                        C3080</h3>
+    
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
+                                        Подробнее
+                                    </a>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="common-slider__slide swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card__content">
+                                    <div
+                                        class="product-card__badge product-card__badge-green">
+                                        Рекомендуем!
+                                    </div>
+                                    <div class="product-card__image">
+                                        <img src="./assets/img/products/example.png"
+                                            alt="AccurioPress C3080">
+                                    </div>
+                                    <h3 class="product-card__title">AccurioPress
+                                        C3080</h3>
+    
+                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
+                                        href="#">
+                                        Подробнее
+                                    </a>
                                 </div>
     
                             </div>
@@ -504,17 +680,15 @@
     </section>
     
     
-    
-    
     <section class="news-block r-section">
         <div class="r-container">
             <div class="news-block__inner">
                 <!-- Header -->
                 <div class="news-block__header section-row">
                     <h2 class="news-block__title section-title">Новости</h2>
-                    <button class="news-block__btn r-btn r-btn--text-orange">
+                    <a class="news-block__btn r-btn r-btn--red" href="#">
                         Читать все
-                    </button>
+                    </a>
                 </div>
     
                 <!-- News Slider -->
@@ -522,7 +696,8 @@
                     <div class="swiper-wrapper">
                         <!-- News Card -->
                         <div class="news-block__slide swiper-slide">
-                            <article class="news-block__slide-content news-card-sm">
+                            <a class="news-block__slide-content news-card-sm"
+                                href="#">
                                 <div class="news-card-sm__image">
                                     <img src="./assets/img/news/card4.png"
                                         alt="News image">
@@ -543,10 +718,11 @@
                                     <time
                                         class="news-card-sm__date">29.02.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
                         <div class="news-block__slide swiper-slide">
-                            <article class="news-block__slide-content news-card-sm">
+                            <a class="news-block__slide-content news-card-sm"
+                                href="#">
                                 <div class="news-card-sm__image">
                                     <img src="./assets/img/news/card4.png"
                                         alt="News image">
@@ -575,10 +751,11 @@
                                     <time
                                         class="news-card-sm__date">29.02.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
                         <div class="news-block__slide swiper-slide">
-                            <article class="news-block__slide-content news-card-sm">
+                            <a class="news-block__slide-content news-card-sm"
+                                href="#">
                                 <div class="news-card-sm__image">
                                     <img src="./assets/img/news/card4.png"
                                         alt="News image">
@@ -601,10 +778,11 @@
                                     <time
                                         class="news-card-sm__date">29.02.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
                         <div class="news-block__slide swiper-slide">
-                            <article class="news-block__slide-content news-card-sm">
+                            <a class="news-block__slide-content news-card-sm"
+                                href="#">
                                 <div class="news-card-sm__image">
                                     <img src="./assets/img/news/card4.png"
                                         alt="News image">
@@ -633,7 +811,7 @@
                                     <time
                                         class="news-card-sm__date">29.02.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -644,6 +822,9 @@
     <section class="projects-block r-section">
         <div class="r-container">
             <div class="projects-block__inner">
+                <a class="projects-block__btn-mobile r-btn r-btn--red" href="#">
+                    Читать все
+                </a>
                 <!-- Header -->
                 <div class="projects-block__header">
                     <div class="section-row">
@@ -682,7 +863,7 @@
                     <div class="swiper-wrapper">
     
                         <div class="swiper-slide">
-                            <article class="news-card">
+                            <a class="news-card" href="#">
                                 <div class="news-card__image">
                                     <img src="./assets/img/news/card1.png"
                                         alt="News image">
@@ -695,12 +876,12 @@
                                     </h3>
                                     <time class="news-card__date">24.04.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
     
     
                         <div class="swiper-slide">
-                            <article class="news-card">
+                            <a class="news-card" href="#">
                                 <div class="news-card__image">
                                     <img src="./assets/img/news/card2.png"
                                         alt="News image">
@@ -713,11 +894,11 @@
                                     </h3>
                                     <time class="news-card__date">24.04.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
     
                         <div class="swiper-slide">
-                            <article class="news-card">
+                            <a class="news-card" href="#">
                                 <div class="news-card__image">
                                     <img src="./assets/img/news/card3.png"
                                         alt="News image">
@@ -730,11 +911,11 @@
                                     </h3>
                                     <time class="news-card__date">24.04.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
     
                         <div class="swiper-slide">
-                            <article class="news-card">
+                            <a class="news-card" href="#">
                                 <div class="news-card__image">
                                     <img src="./assets/img/news/card3.png"
                                         alt="News image">
@@ -747,7 +928,7 @@
                                     </h3>
                                     <time class="news-card__date">24.04.2024</time>
                                 </div>
-                            </article>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -786,7 +967,9 @@
                 <div class="about-block__features">
                     <div class="about-block__feature feature-card">
                         <div class="feature-card__inner">
-                            <h3 class="feature-card__title">235 видов техники</h3>
+                            <h3
+                                class="feature-card__title feature-card__title--red">
+                                235 видов техники</h3>
                             <p class="feature-card__text">для цифровой, офсетной и
                                 УФ-печати от ведущих мировых брендов, таких как
                                 Konica
@@ -797,7 +980,9 @@
     
                     <div class="about-block__feature feature-card">
                         <div class="feature-card__inner">
-                            <h3 class="feature-card__title">25 лет опыта</h3>
+                            <h3
+                                class="feature-card__title feature-card__title--red">
+                                25 лет опыта</h3>
                             <p class="feature-card__text">в продаже полиграфического
                                 оборудования и расходных материалов.</p>
                         </div>
@@ -805,7 +990,9 @@
     
                     <div class="about-block__feature feature-card">
                         <div class="feature-card__inner">
-                            <h3 class="feature-card__title">Индивидуальные
+                            <h3
+                                class="feature-card__title feature-card__title--red">
+                                Индивидуальные
                                 консультации
                             </h3>
                             <p class="feature-card__text">для подбора оптимальных
@@ -815,7 +1002,9 @@
     
                     <div class="about-block__feature feature-card">
                         <div class="feature-card__inner">
-                            <h3 class="feature-card__title">Высокое качество
+                            <h3
+                                class="feature-card__title feature-card__title--red">
+                                Высокое качество
                                 продукции
                             </h3>
                             <p class="feature-card__text">Наше оборудование и
@@ -829,7 +1018,9 @@
     
                     <div class="about-block__feature feature-card">
                         <div class="feature-card__inner">
-                            <h3 class="feature-card__title">Комплексное обслуживание
+                            <h3
+                                class="feature-card__title feature-card__title--red">
+                                Комплексное обслуживание
                             </h3>
                             <p class="feature-card__text">установка оборудования,
                                 техническая поддержка и обучение операторов</p>
@@ -841,6 +1032,86 @@
             </div>
         </div>
     </section>
+    
+    <div class="partners r-section">
+        <div class="r-container">
+            <h2 class="partners__title r-section-title">Ключевые партнеры</h2>
+            <div class="partners__grid">
+                <div class="partners__item">
+                    <img src="./assets/img/partners/1.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/2.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/3.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/4.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/5.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/6.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/7.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/8.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/9.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/10.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/11.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/12.png" alt="">
+                </div>
+                <div class="partners__item">
+                    <img src="./assets/img/partners/13.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="r-fixed-nav" id="targetElement">
+        <div class="r-fixed-nav__inner">
+            <div class="r-fixed-nav__links">
+                <a class="r-fixed-nav__link" style="--bg: #3371D6;" href="#">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1.66997 5.09458C1.6666 5.21463 1.66661 5.34295 1.66663 5.47339L1.66663 14.5266C1.6666 14.7369 1.66658 14.9417 1.68075 15.1152C1.69632 15.3057 1.73304 15.5304 1.84829 15.7566C2.00807 16.0702 2.26304 16.3252 2.57665 16.485C2.80283 16.6002 3.02761 16.637 3.21811 16.6525C3.39157 16.6667 3.59641 16.6667 3.80673 16.6666H16.1932C16.4035 16.6667 16.6084 16.6667 16.7818 16.6525C16.9723 16.637 17.1971 16.6002 17.4233 16.485C17.7369 16.3252 17.9919 16.0702 18.1516 15.7566C18.2669 15.5304 18.3036 15.3057 18.3192 15.1152C18.3333 14.9417 18.3333 14.737 18.3333 14.5267V5.47339C18.3333 5.34298 18.3333 5.21462 18.33 5.09458L11.0554 11.0465C10.4414 11.5488 9.55851 11.5488 8.94456 11.0465L1.66997 5.09458Z"
+                            fill="white" />
+                        <path
+                            d="M17.5449 3.58348C17.5054 3.55903 17.4649 3.53616 17.4233 3.51497C17.1971 3.39973 16.9723 3.363 16.7818 3.34744C16.6084 3.33327 16.4035 3.33329 16.1932 3.33332H3.80672C3.5964 3.33329 3.39157 3.33327 3.21811 3.34744C3.02761 3.363 2.80283 3.39973 2.57665 3.51497C2.53505 3.53617 2.49449 3.55903 2.45505 3.58349L9.99996 9.7566L17.5449 3.58348Z"
+                            fill="white" />
+                    </svg>
+                </a>
+                <a class="r-fixed-nav__link" style="--bg: #0AC43C;" href="#">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.80632 2.43088C6.45857 1.84796 5.65514 1.74801 5.17518 2.22798L2.18958 5.21357C1.82416 5.57899 1.66986 6.12187 1.82349 6.63664C2.21609 7.95213 2.7695 9.23006 3.48374 10.4394C4.20527 11.6611 5.09057 12.8122 6.13916 13.8607C7.18774 14.9093 8.33881 15.7946 9.56048 16.5161C10.7698 17.2304 12.0478 17.7838 13.3632 18.1764C13.878 18.33 14.4209 18.1757 14.7863 17.8103L17.7719 14.8247C18.2519 14.3448 18.1519 13.5413 17.569 13.1936L14.639 11.4456C14.2294 11.2013 13.7061 11.2664 13.3688 11.6037L12.2025 12.7699C11.1855 12.2094 10.229 11.4977 9.36561 10.6343C8.50222 9.77088 7.79053 8.81435 7.22997 7.79737L8.39624 6.63111C8.73353 6.29381 8.79863 5.77052 8.55424 5.36087L6.80632 2.43088Z"
+                            fill="white" />
+                    </svg>
+                </a>
+            </div>
+    
+            <div class="r-fixed-nav__bottom">
+                <a class="r-fixed-nav__btn r-btn r-btn--red" href="">
+                    Перейти в каталог
+                </a>
+            </div>
+        </div>
+    </div>
 
 
     <footer class="footer">
@@ -936,7 +1207,9 @@
                             </ul>
                         </div>
                         <div class="footer__third-col">
-                            <button class="footer__btn r-btn r-btn--text-orange">
+                            <button
+                                class="footer__btn r-btn r-btn--orange-dark js-modal-activator"
+                                data-r-modal="#callPopup">
                                 Заказать звонок
                             </button>
                         </div>
@@ -945,6 +1218,86 @@
             </div>
         </div>
     </footer>
+    
+    <div class="r-modal" id="callPopup">
+        <div class="r-modal__box">
+            <div class="r-modal__inner">
+                <div class="r-modal__title">Оставьте заявку в этой форме и наш
+                    звонок не заставит долго ждать!</div>
+                <button class="r-modal__close js-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.00635 7.25049L16.689 16.9332" stroke="inherit"
+                            stroke-width="2" stroke-linecap="round" />
+                        <path d="M16.689 7.25049L7.0063 16.9332" stroke="inherit"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+    
+                <form class="r-modal__form r-form">
+                    <div class="r-form__group">
+                        <label class="r-form__field r-field">
+                            <input class="r-field__input" type="text"
+                                placeholder="Имя*">
+                        </label>
+                        <label class="r-form__field r-field">
+                            <input class="r-field__input" type="email"
+                                placeholder="Почта*">
+                        </label>
+                        <label class="r-form__field r-field">
+                            <input class="r-field__input" type="tel"
+                                placeholder="Телефон*">
+                        </label>
+                        <div class="r-form__field r-select">
+                            <select class="js-choice" name="test-select"
+                                id="test-select">
+                                <option value="" disabled selected>
+                                    Выберите услугу
+                                </option>
+                                <option value="1">услуга 1</option>
+                                <option value="2">услуга 2</option>
+                            </select>
+                            <div class="r-select__icon">
+                                <svg width="25" height="24" viewBox="0 0 25 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.79289 8.29289C6.18342 7.90237 6.81658 7.90237 7.20711 8.29289L12.5 13.5858L17.7929 8.29289C18.1834 7.90237 18.8166 7.90237 19.2071 8.29289C19.5976 8.68342 19.5976 9.31658 19.2071 9.70711L13.2071 15.7071C12.8166 16.0976 12.1834 16.0976 11.7929 15.7071L5.79289 9.70711C5.40237 9.31658 5.40237 8.68342 5.79289 8.29289Z"
+                                        fill="inherit" />
+                                </svg>
+                            </div>
+                        </div>
+                        <label class="r-form__field r-field">
+                            <textarea class="r-field__input" rows="2"
+                                placeholder="Комментарий"></textarea>
+                        </label>
+                    </div>
+    
+                    <div class="r-form__group">
+                        <label class="r-form__field r-checkbox r-checkbox--md">
+                            <input class="r-checkbox__input" type="checkbox"
+                                id="personaldata">
+                            <span class="r-checkbox__box"></span>
+                            <span class="r-checkbox__text">Я согласен на
+                                обработку персональных данных</span>
+                        </label>
+    
+                        <label class="r-form__field r-checkbox r-checkbox--md">
+                            <input class="r-checkbox__input" type="checkbox"
+                                id="newsletter">
+                            <span class="r-checkbox__box"></span>
+                            <span class="r-checkbox__text">Получать рассылку
+                                со спец предложениями и акциями</span>
+                        </label>
+                    </div>
+    
+                    <div class="r-form__group">
+                        <button class="r-form__btn-full r-btn r-btn--orange-rounded"
+                            type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script
         src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
