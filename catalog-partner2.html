@@ -19,6 +19,10 @@
     <meta name="format-detection" content="telephone=no">
     
     
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    
+    
     
     <title>Страница Терра Принт</title></head>
 
@@ -127,7 +131,7 @@
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
                                             <span class="js-tooltip-activator"
-                                                r-tooltip-target="contact-popup-1">Контакты</span>
+                                                data-r-tooltip-target="contact-popup-1">Контакты</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -253,7 +257,7 @@
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
                                             <span class="js-tooltip-activator"
-                                                r-tooltip-target="contact-popup-2">Контакты</span>
+                                                data-r-tooltip-target="contact-popup-2">Контакты</span>
     
                                         </div>
                                     </li>
@@ -339,11 +343,11 @@
                 </div>
     
                 <button class="header__burger-btn r-burger" type="button">
-                    <div class="r-burger__icon">
+                    <span class="r-burger__icon">
                         <span class="r-burger__line"></span>
                         <span class="r-burger__line"></span>
                         <span class="r-burger__line"></span>
-                    </div>
+                    </span>
     
                     <span class="r-burger__text">Меню</span>
                 </button>
@@ -496,13 +500,33 @@
                                             alt="">
                                     </div>
                                 </div>
-                                <div class="r-product-slider__item swiper-slide">
+                                <div class="r-product-slider__item swiper-slide r-video-slide"
+                                    data-r-load-iframe="https://rutube.ru/play/embed/2806d1baa14ae317eb57d2d0eadd44da/">
                                     <div class="r-product-slider__image">
-                                        <iframe
-                                            src="https://rutube.ru/play/embed/2806d1baa14ae317eb57d2d0eadd44da/"
-                                            frameBorder="0" allow="clipboard-write;"
+                                        <iframe frameBorder="0"
+                                            allow="clipboard-write;autoplay"
                                             webkitAllowFullScreen mozallowfullscreen
                                             allowFullScreen></iframe>
+                                        <div
+                                            class="r-product-slider__image-preview">
+                                            <img src="https://rutube.ru/api/video/2806d1baa14ae317eb57d2d0eadd44da/thumbnail/?redirect=1"
+                                                alt="">
+                                            <svg fill="#fff" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                viewBox="0 0 60 60"
+                                                xml:space="preserve">
+                                                <g>
+                                                    <path
+                                                        d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30
+                                                   c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15
+                                                   C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z" />
+                                                    <path
+                                                        d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30
+                                                   S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z" />
+                                                </g>
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
     
@@ -514,26 +538,32 @@
                             class="r-product-thumbs__swiper swiper js-product-thumbs">
                             <div class="r-product-thumbs__wrapper swiper-wrapper">
                                 <div class="r-product-thumbs__slide swiper-slide">
-                                    <div class="r-product-thumbs__image">
-                                        <img src="./assets/img/product-slider/product2.png"
+                                    <a class="r-product-thumbs__image"
+                                        data-fancybox="gallery"
+                                        href="./assets/img/product-slider/product1.png">
+                                        <img src="./assets/img/product-slider/product1.png"
                                             alt="">
-                                    </div>
+                                    </a>
+                                </div>
+                                <div class="r-product-thumbs__slide swiper-slide">
+                                    <a class="r-product-thumbs__image"
+                                        data-fancybox="gallery"
+                                        href="./assets/img/product-slider/product1.png">
+                                        <img src="./assets/img/product-slider/product1.png"
+                                            alt="">
+                                    </a>
+                                </div>
+                                <div class="r-product-thumbs__slide swiper-slide">
+                                    <a class="r-product-thumbs__image"
+                                        data-fancybox="gallery"
+                                        href="./assets/img/product-slider/product1.png">
+                                        <img src="./assets/img/product-slider/product1.png"
+                                            alt="">
+                                    </a>
                                 </div>
                                 <div class="r-product-thumbs__slide swiper-slide">
                                     <div class="r-product-thumbs__image">
-                                        <img src="./assets/img/product-slider/product2.png"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="r-product-thumbs__slide swiper-slide">
-                                    <div class="r-product-thumbs__image">
-                                        <img src="./assets/img/product-slider/product2.png"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="r-product-thumbs__slide swiper-slide">
-                                    <div class="r-product-thumbs__image">
-                                        <img src="./assets/img/product-slider/product2.png"
+                                        <img src="https://rutube.ru/api/video/2806d1baa14ae317eb57d2d0eadd44da/thumbnail/?redirect=1"
                                             alt="">
                                     </div>
                                 </div>
@@ -781,6 +811,8 @@
     </div>
 
 
+
+
     <footer class="footer">
         <div class="r-container">
             <div class="footer__inner">
@@ -971,6 +1003,8 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script
+        src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script
         src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -981,8 +1015,8 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
     <script src="
-        https://cdn.jsdelivr.net/npm/choices.js@11.0.2/public/assets/scripts/choices.min.js
-        "></script>
+    https://cdn.jsdelivr.net/npm/choices.js@11.0.2/public/assets/scripts/choices.min.js
+    "></script>
     <script src="./assets/js/main.min.js"></script>
 </body>
 

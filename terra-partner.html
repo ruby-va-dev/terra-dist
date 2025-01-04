@@ -19,6 +19,10 @@
     <meta name="format-detection" content="telephone=no">
     
     
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    
+    
     
     <title>Страница Терра Принт</title></head>
 
@@ -127,7 +131,7 @@
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
                                             <span class="js-tooltip-activator"
-                                                r-tooltip-target="contact-popup-1">Контакты</span>
+                                                data-r-tooltip-target="contact-popup-1">Контакты</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -253,7 +257,7 @@
                                         class="header__submenu-item header__submenu-item--popup">
                                         <div class="dropdown">
                                             <span class="js-tooltip-activator"
-                                                r-tooltip-target="contact-popup-2">Контакты</span>
+                                                data-r-tooltip-target="contact-popup-2">Контакты</span>
     
                                         </div>
                                     </li>
@@ -339,11 +343,11 @@
                 </div>
     
                 <button class="header__burger-btn r-burger" type="button">
-                    <div class="r-burger__icon">
+                    <span class="r-burger__icon">
                         <span class="r-burger__line"></span>
                         <span class="r-burger__line"></span>
                         <span class="r-burger__line"></span>
-                    </div>
+                    </span>
     
                     <span class="r-burger__text">Меню</span>
                 </button>
@@ -483,14 +487,15 @@
     </section>
     
     
-    <section class="common-slider r-section" id="trackedElement">
+    <section class="common-slider r-section">
         <div class="r-container">
             <div class="common-slider__inner">
                 <div class="common-slider__row section-row">
                     <div class="common-slider__title section-title">
                         Лучшие предложения
                     </div>
-                    <a class="common-slider__link r-btn r-btn--red" href="#">Перейти
+                    <a class="common-slider__link r-btn r-btn--red" href="#"
+                        id="trackedElement">Перейти
                         в каталог</a>
                 </div>
                 <!-- Slider main container -->
@@ -499,7 +504,7 @@
                     <div class="swiper-wrapper">
                         <!-- Slides -->
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -512,16 +517,16 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -534,16 +539,16 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -556,16 +561,16 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -578,16 +583,16 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -600,16 +605,16 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -622,16 +627,16 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                         <div class="common-slider__slide swiper-slide">
-                            <div class="product-card">
+                            <a class="product-card" href="#">
                                 <div class="product-card__content">
                                     <div
                                         class="product-card__badge product-card__badge-green">
@@ -644,13 +649,13 @@
                                     <h3 class="product-card__title">AccurioPress
                                         C3080</h3>
     
-                                    <a class="product-card__button r-btn r-btn--orange-dark r-btn--small"
-                                        href="#">
+                                    <div
+                                        class="product-card__button r-btn r-btn--orange-dark r-btn--small">
                                         Подробнее
-                                    </a>
+                                    </div>
                                 </div>
     
-                            </div>
+                            </a>
                         </div>
                     </div>
     
@@ -715,8 +720,7 @@
                                             переплете
                                         </p>
                                     </div>
-                                    <time
-                                        class="news-card-sm__date">29.02.2024</time>
+                                    <div class="news-card-sm__date">29.02.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -748,8 +752,7 @@
                                             возможностям, ни по качеству
                                         </p>
                                     </div>
-                                    <time
-                                        class="news-card-sm__date">29.02.2024</time>
+                                    <div class="news-card-sm__date">29.02.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -775,8 +778,7 @@
                                             переплете
                                         </p>
                                     </div>
-                                    <time
-                                        class="news-card-sm__date">29.02.2024</time>
+                                    <div class="news-card-sm__date">29.02.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -808,8 +810,7 @@
                                             возможностям, ни по качеству
                                         </p>
                                     </div>
-                                    <time
-                                        class="news-card-sm__date">29.02.2024</time>
+                                    <div class="news-card-sm__date">29.02.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -874,7 +875,7 @@
                                         цветные книги на струйной машине Kirin
                                         китайского производства
                                     </h3>
-                                    <time class="news-card__date">24.04.2024</time>
+                                    <div class="news-card__date">24.04.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -892,7 +893,7 @@
                                         JETvarnish 3D ONE в типографии «Сам
                                         полиграфист»
                                     </h3>
-                                    <time class="news-card__date">24.04.2024</time>
+                                    <div class="news-card__date">24.04.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -909,7 +910,7 @@
                                         JETvarnish 3D ONE в типографии «Сам
                                         полиграфист»
                                     </h3>
-                                    <time class="news-card__date">24.04.2024</time>
+                                    <div class="news-card__date">24.04.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -926,7 +927,7 @@
                                         JETvarnish 3D ONE в типографии «Сам
                                         полиграфист»
                                     </h3>
-                                    <time class="news-card__date">24.04.2024</time>
+                                    <div class="news-card__date">24.04.2024</div>
                                 </div>
                             </a>
                         </div>
@@ -1304,6 +1305,8 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script
+        src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script
         src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -1314,8 +1317,8 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
     <script src="
-        https://cdn.jsdelivr.net/npm/choices.js@11.0.2/public/assets/scripts/choices.min.js
-        "></script>
+https://cdn.jsdelivr.net/npm/choices.js@11.0.2/public/assets/scripts/choices.min.js
+"></script>
     <script src="./assets/js/main.min.js"></script>
 </body>
 

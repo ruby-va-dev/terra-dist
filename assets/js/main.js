@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeTooltip = null; // Variable for storing the current active tooltip
 
   function toggleTooltip(element) {
-    const targetId = element.getAttribute("r-tooltip-target"); // Get target ID
+    const targetId = element.getAttribute("data-r-tooltip-target"); // Get target ID
     const tooltip = document.getElementById(targetId); // Find the corresponding tooltip
 
     if (!tooltip) return; // Do nothing if no tooltip is found
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     debounce(() => {
       if (activeTooltip) {
         const activator = document.querySelector(
-          `[r-tooltip-target="${activeTooltip.id}"]`
+          `[data-r-tooltip-target="${activeTooltip.id}"]`
         );
         if (activator) {
           const rect = activator.getBoundingClientRect();
@@ -244,13 +244,66 @@ document.addEventListener("DOMContentLoaded", () => {
     watchSlidesProgress: true,
   });
 
-  const swiperProduct = new Swiper(".js-product-slider", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    thumbs: {
-      swiper: swiperThumbs,
-    },
-  });
+  const activateProductSliderBadgesVisibilityChange = () => {
+    const productSliderContainer = document.querySelector(".r-product-slider");
+
+    if (!productSliderContainer) return;
+    const infoBlock = productSliderContainer.querySelector(
+      ".single-product__info"
+    );
+    const badge = productSliderContainer.querySelector(
+      ".single-product__badge"
+    );
+
+    const hideElements = () => {
+      if (badge) {
+        badge.classList.remove("active");
+      }
+      if (infoBlock) {
+        infoBlock.classList.remove("active");
+      }
+    };
+
+    const showElements = () => {
+      if (badge) {
+        badge.classList.add("active");
+      }
+      if (infoBlock) {
+        infoBlock.classList.add("active");
+      }
+    };
+
+    const swiperProduct = new Swiper(".js-product-slider", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      thumbs: {
+        swiper: swiperThumbs,
+      },
+      on: {
+        init: (swiper) => {
+          const activeSlide = swiper.slides[swiper.activeIndex];
+
+          if (activeSlide.classList.contains(".r-video-slide")) {
+            hideElements();
+          } else {
+            showElements();
+          }
+        },
+        slideChange: (swiper) => {
+          const activeSlide = swiper.slides[swiper.activeIndex];
+          console.log(activeSlide);
+
+          if (activeSlide.classList.contains("r-video-slide")) {
+            hideElements();
+          } else {
+            showElements();
+          }
+        },
+      },
+    });
+  };
+
+  activateProductSliderBadgesVisibilityChange();
 
   const bootstrapMenuDropdowns = document.querySelectorAll(".dropdown-menu");
 
@@ -427,16 +480,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let startY = 0;
     let endY = 0;
+    let isTouchMoved = false; // Добавлено для отслеживания движения
 
     element.addEventListener("touchstart", (event) => {
       startY = event.touches[0].clientY;
+      endY = startY; // Сбрасываем endY
+      isTouchMoved = false; // Сбрасываем флаг
     });
 
     element.addEventListener("touchmove", (event) => {
       endY = event.touches[0].clientY;
+      isTouchMoved = true; // Устанавливаем флаг, если было движение
     });
 
     element.addEventListener("touchend", () => {
+      if (!isTouchMoved) {
+        console.log("Клик без движения — свайп не выполняется.");
+        return; // Если не было движения, ничего не делаем
+      }
+
       const swipeDistance = startY - endY;
 
       if (direction === "up" && swipeDistance > threshold) {
@@ -461,7 +523,7 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 50,
     onSwipe: (element) => {
       element.classList.remove("swiped-up");
-      console.log(`Swiped up on`, element);
+      console.log(`Swiped down on`, element);
     },
   });
 
@@ -547,4 +609,54 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   toggleElementOnScroll("trackedElement", "targetElement", 0);
+
+  Fancybox.bind("[data-fancybox]", {
+    backFocus: false,
+    touch: false,
+  });
+
+  const buildRutubeIframes = () => {
+    const iframes = document.querySelectorAll("[data-r-load-iframe]");
+
+    iframes.forEach((iframe) => {
+      const src = iframe.dataset.rLoadIframe;
+      console.log(src);
+
+      const iframeElement = iframe.querySelector("iframe");
+      const preview = iframe.querySelector("img");
+
+      const previewSrc = src.match(/[a-f0-9]{32}/);
+      preview.src = `https://rutube.ru/api/video/${previewSrc}/thumbnail/?redirect=1`;
+
+      iframe.addEventListener("click", () => {
+        iframeElement.src = `${src}?autoplay=1`;
+
+        iframeElement.onload = () => {
+          iframeElement.contentWindow.postMessage(
+            JSON.stringify({ type: "player:play" }),
+            "*"
+          );
+        };
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+            } else {
+              iframeElement.contentWindow.postMessage(
+                JSON.stringify({ type: "player:pause" }),
+                "*"
+              );
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(iframeElement);
+    });
+  };
+
+  buildRutubeIframes();
 });
