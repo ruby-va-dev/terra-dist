@@ -660,20 +660,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buildRutubeIframes();
 
-  const thumbsSlides = document.querySelectorAll(".r-product-thumbs__slide");
+  // const thumbsSlides = document.querySelectorAll(".r-product-thumbs__slide");
 
-  thumbsSlides.forEach((slide) => {
-    const videoThumb = slide.querySelector("img[src*='rutube']");
+  // thumbsSlides.forEach((slide) => {
+  //   const videoThumb = slide.querySelector("img[src*='rutube']");
 
-    if (videoThumb) {
-      // Получаем ID RuTube видео
-      const iframeSrc = videoThumb.src.match(/[a-f0-9]{32}/)[0];
+  //   if (videoThumb) {
+  //     // Получаем ID RuTube видео
+  //     const iframeSrc = videoThumb.src.match(/[a-f0-9]{32}/)[0];
 
-      // Настраиваем Fancybox
-      const link = slide.querySelector("a");
-      link.dataset.fancybox = "gallery"; // Группировка в галерею
-      link.href = `https://rutube.ru/play/embed/${iframeSrc}/?autoplay=1`;
-      link.setAttribute("data-type", "iframe"); // Указание на iframe
-    }
-  });
+  //     // Настраиваем Fancybox
+  //     const link = slide.querySelector("a");
+  //     link.dataset.fancybox = "gallery"; // Группировка в галерею
+  //     link.href = `https://rutube.ru/play/embed/${iframeSrc}/?autoplay=1`;
+  //     link.setAttribute("data-type", "iframe"); // Указание на iframe
+  //   }
+  // });
 });

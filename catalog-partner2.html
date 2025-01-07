@@ -419,23 +419,22 @@
     </div>    
     
     <div class="r-breadcrumbs">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <ul class="r-breadcrumbs__list list-reset">
-                        <li class="r-breadcrumbs__item">
-                            <a class="r-breadcrumbs__link" href="#">Главная</a>
-                        </li>
-                        <li class="r-breadcrumbs__item">
-                            <button class="r-breadcrumbs__link" href="#">Терра
-                                Партнер</button>
-                        </li>
-                        <li class="r-breadcrumbs__item active">
-                            <span class="r-breadcrumbs__link">Каталог</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="r-container">
+            <ul class="r-breadcrumbs__list list-reset">
+                <li class="r-breadcrumbs__item">
+                    <a class="r-breadcrumbs__link" href="#">Главная</a>
+                </li>
+                <li class="r-breadcrumbs__item">
+                    <a class="r-breadcrumbs__link" href="#">
+                        Терра Партнер
+                    </a>
+                </li>
+                <li class="r-breadcrumbs__item active">
+                    <span class="r-breadcrumbs__link">
+                        Каталог
+                    </span>
+                </li>
+            </ul>
         </div>
     </div>
     
@@ -483,32 +482,37 @@
                             class="r-product-slider__swiper swiper js-product-slider">
                             <div class="r-product-slider__wrapper swiper-wrapper">
                                 <div class="r-product-slider__item swiper-slide">
-                                    <div class="r-product-slider__image">
+                                    <a class="r-product-slider__image"
+                                        data-fancybox="gallery"
+                                        href="./assets/img/product-slider/product2.png">
                                         <img src="./assets/img/product-slider/product2.png"
                                             alt="">
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="r-product-slider__item swiper-slide">
-                                    <div class="r-product-slider__image">
+                                    <a class="r-product-slider__image"
+                                        data-fancybox="gallery"
+                                        href="./assets/img/product-slider/product2.png">
                                         <img src="./assets/img/product-slider/product2.png"
                                             alt="">
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="r-product-slider__item swiper-slide">
-                                    <div class="r-product-slider__image">
+                                    <a class="r-product-slider__image"
+                                        data-fancybox="gallery"
+                                        href="./assets/img/product-slider/product2.png">
                                         <img src="./assets/img/product-slider/product2.png"
                                             alt="">
-                                    </div>
+                                    </a>
                                 </div>
-                                <div class="r-product-slider__item swiper-slide r-video-slide"
-                                    data-r-load-iframe="https://rutube.ru/play/embed/2806d1baa14ae317eb57d2d0eadd44da/">
-                                    <div class="r-product-slider__image">
-                                        <iframe frameBorder="0"
-                                            allow="clipboard-write;autoplay"
-                                            webkitAllowFullScreen mozallowfullscreen
-                                            allowFullScreen></iframe>
-                                        <div
-                                            class="r-product-slider__image-preview">
+                                <div
+                                    class="r-product-slider__item swiper-slide r-video-slide">
+                                    <a class="r-product-slider__image"
+                                        data-fancybox="gallery"
+                                        href="https://rutube.ru/play/embed/2806d1baa14ae317eb57d2d0eadd44da/?autoplay=1"
+                                        data-type="iframe">
+                                        <div class="
+                                        r-product-slider__image-preview">
                                             <img src="https://rutube.ru/api/video/2806d1baa14ae317eb57d2d0eadd44da/thumbnail/?redirect=1"
                                                 alt="">
                                             <svg fill="#fff" version="1.1"
@@ -527,7 +531,7 @@
                                                 </g>
                                             </svg>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
     
                             </div>
@@ -538,35 +542,28 @@
                             class="r-product-thumbs__swiper swiper js-product-thumbs">
                             <div class="r-product-thumbs__wrapper swiper-wrapper">
                                 <div class="r-product-thumbs__slide swiper-slide">
-                                    <a class="r-product-thumbs__image"
-                                        data-fancybox="gallery"
-                                        href="./assets/img/product-slider/product1.png">
+                                    <div class="r-product-thumbs__image">
                                         <img src="./assets/img/product-slider/product1.png"
                                             alt="">
-                                    </a>
+                                    </div>
                                 </div>
                                 <div class="r-product-thumbs__slide swiper-slide">
-                                    <a class="r-product-thumbs__image"
-                                        data-fancybox="gallery"
-                                        href="./assets/img/product-slider/product1.png">
+                                    <div class="r-product-thumbs__image">
                                         <img src="./assets/img/product-slider/product1.png"
                                             alt="">
-                                    </a>
+                                    </div>
                                 </div>
                                 <div class="r-product-thumbs__slide swiper-slide">
-                                    <a class="r-product-thumbs__image"
-                                        data-fancybox="gallery"
-                                        href="./assets/img/product-slider/product1.png">
+                                    <div class="r-product-thumbs__image">
                                         <img src="./assets/img/product-slider/product1.png"
                                             alt="">
-                                    </a>
+                                    </div>
                                 </div>
                                 <div class="r-product-thumbs__slide swiper-slide">
-                                    <a class="r-product-thumbs__image"
-                                        data-fancybox="gallery">
+                                    <div class="r-product-thumbs__image">
                                         <img src="https://rutube.ru/api/video/2806d1baa14ae317eb57d2d0eadd44da/thumbnail/?redirect=1"
                                             alt="">
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
