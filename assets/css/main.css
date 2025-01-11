@@ -16279,6 +16279,13 @@ a:hover {
     }
 }
 
+@media (min-width: 2300px) {
+    .home__view {
+        background-image: url(../img/home/bg-pattern-1920.png);
+        height: calc(100% - 344px);
+    }
+}
+
 @media (max-width: 1200px) {
     .home__view {
         display: none;
