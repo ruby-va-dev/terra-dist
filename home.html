@@ -27,7 +27,7 @@
     <title>Home Page</title></head>
 
 <body class="body-dark">
-    <header class="header header--dark">
+    <header class="header header--dark header--wide">
         <div class="r-container-wide">
             <nav class="header__inner">
                 <a class="header__logo" href="#">
@@ -460,10 +460,20 @@
                 <div class="home__main">
                     <div class="home__view">
                         <div class="home__view-image">
-                            <img src="./assets/img/home/chicken1.png" alt="">
+                            <picture>
+                                <source media="(min-width: 2300px)"
+                                    srcset="./assets/img/home/chicken1.png">
+                                <img src="./assets/img/home/chicken1-normal.png"
+                                    alt="">
+                            </picture>
                         </div>
                         <div class="home__view-image">
-                            <img src="./assets/img/home/chicken2.png" alt="">
+                            <picture>
+                                <source media="(min-width: 2300px)"
+                                    srcset="./assets/img/home/chk2.png">
+                                <img src="./assets/img/home/chk2-normal.png" alt="">
+                            </picture>
+    
                         </div>
                     </div>
                     <div class="home__grid">
@@ -572,7 +582,7 @@
                                         </ul>
                                     </div>
                                     <div class="home-block__image">
-                                        <img src="./assets/img/home/chicken2.png"
+                                        <img src="./assets/img/home/chk2.png"
                                             alt="">
                                     </div>
                                     <div class="home-block__footer">
